@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Muzyka i dane aplikacji, gdyby katalogi wskazano wewnątrz projektu
+*.mp3
+*.mp3.part
+*.tmp
+
+# Edytory i system
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Claude Code – lokalne ustawienia
+.claude/settings.local.json

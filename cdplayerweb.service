@@ -1,0 +1,11 @@
+[Unit]
+Description=cdplayerweb - webowy odtwarzacz CD
+After=network-online.target
+
+[Service]
+WorkingDirectory=%h/repos/cdplayerweb
+ExecStart=/usr/bin/python3 -m cdplayer
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

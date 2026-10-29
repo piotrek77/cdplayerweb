@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Odtwarzacz CD</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="player">
+    <section class="deck">
+      <div class="art" id="art">
+        <div class="disc" id="disc"></div>
+        <img id="cover" alt="" hidden>
+      </div>
+
+      <div class="info">
+        <p class="status" id="status">Łączenie…</p>
+        <h1 id="album">—</h1>
+        <p class="artist" id="artist"></p>
+        <p class="now" id="now">&nbsp;</p>
+
+        <div class="progress">
+          <span id="pos">0:00</span>
+          <input type="range" id="seek" min="0" max="1" step="0.1" value="0" disabled aria-label="Pozycja">
+          <span id="dur">0:00</span>
+        </div>
+
+        <div class="controls">
+          <button id="prev" title="Poprzedni" aria-label="Poprzedni">⏮</button>
+          <button id="play" class="primary" title="Odtwarzaj" aria-label="Odtwarzaj">▶</button>
+          <button id="stop" title="Stop" aria-label="Stop">⏹</button>
+          <button id="next" title="Następny" aria-label="Następny">⏭</button>
+          <label class="volume">🔊<input type="range" id="volume" min="0" max="1" step="0.01" value="1" aria-label="Głośność"></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="rip">Zgraj całą płytę na dysk (MP3)</button>
+      <button id="cancel-rip" hidden>Przerwij zgrywanie</button>
+      <button id="edit">Edytuj opis</button>
+      <button id="refresh" title="Pobierz ponownie opis z MusicBrainz">Szukaj w MusicBrainz</button>
+      <button id="eject">Wysuń płytę</button>
+      <div class="rip-progress" id="rip-progress" hidden>
+        <div class="bar"><div id="rip-bar"></div></div>
+        <span id="rip-text"></span>
+      </div>
+      <p class="message" id="message" hidden></p>
+    </section>
+
+    <ol class="tracks" id="tracks"></ol>
+  </main>
+
+  <dialog id="editor">
+    <form method="dialog" id="editor-form">
+      <h2>Opis płyty</h2>
+      <label>Wykonawca <input name="artist" required></label>
+      <label>Album <input name="album" required></label>
+      <label>Rok <input name="year" inputmode="numeric" maxlength="4"></label>
+      <div id="editor-tracks"></div>
+      <div class="dialog-buttons">
+        <button type="button" id="editor-cancel">Anuluj</button>
+        <button value="save" class="primary">Zapisz</button>
+      </div>
+    </form>
+  </dialog>
+
+  <audio id="audio" preload="none"></audio>
+  <script src="/static/app.js"></script>
+</body>
+</html>

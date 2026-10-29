@@ -207,3 +207,7 @@ cdplayer/
 Aplikacja nie ma logowania. Każdy, kto ma dostęp do portu, może odtwarzać
 muzykę, zgrywać i wysuwać płytę. Przeznaczona jest do sieci domowej. Żeby
 ograniczyć ją do jednego komputera, uruchom z `--host 127.0.0.1`.
+
+## Licencja
+
+[MIT](LICENSE) © 2026 Piotr Oslowski
